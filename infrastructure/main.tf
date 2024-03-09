@@ -11,7 +11,7 @@ terraform {
  
 provider "azurerm" {
   features {}
-},
+}
  
 resource "azurerm_resource_group" "lab9" {
   name     = "lab9-rg"
