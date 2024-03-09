@@ -63,10 +63,10 @@ jobs:
           echo "CHECK_STATUS=0" >> $GITHUB_ENV
 
           for changed_file in ${{ steps.pr_files.outputs.added_modified }}; do
-            echo "Checking terraform fmt on ${changed_file}..."
+            echo "Checking terraform validate on ${changed_file}..."
 
             if [[ $changed_file == *.tf ]]; then
-              terraform fmt -check $changed_file
+              terraform validate -check $changed_file
               FMT_STATUS=$(echo $?)
 
               if [[ $FMT_STATUS -ne 0 ]]; then
